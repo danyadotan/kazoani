@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kazo Ani | We Put Women’s Health on the Map</title>
+  <meta name="description" content="Kazo Ani is a bilingual women’s health platform dedicated to preventive healthcare, knowledge access, clinician-led conversations, and women-centered data collection." />
+  <style>
+    :root {
+      --bg: #fffafc;
+      --bg-soft: #fff2f7;
+      --panel: rgba(255,255,255,0.82);
+      --panel-strong: rgba(255,255,255,0.94);
+      --text: #241521;
+      --muted: #6b5061;
+      --line: rgba(133, 60, 95, 0.16);
+      --primary: #a12863;
+      --primary-2: #e5448a;
+      --accent: #5a1f73;
+      --accent-2: #ffcfde;
+      --shadow: 0 18px 60px rgba(108, 29, 70, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --max: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, "Noto Sans Hebrew", "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(229,68,138,0.16), transparent 28%),
+        radial-gradient(circle at 15% 18%, rgba(90,31,115,0.14), transparent 20%),
+        linear-gradient(180deg, #fff8fb 0%, #fffafc 50%, #fff3f8 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(14px);
+      background: rgba(255,250,252,0.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 800;
+      box-shadow: 0 10px 30px rgba(161,40,99,0.25);
+      flex: 0 0 auto;
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-copy span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .nav-links a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      background: rgba(161,40,99,0.08);
+      color: var(--primary);
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 22px;
+    }
+
+    .hero {
+      padding: 56px 0 22px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.18fr 0.82fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-card,
+    .panel,
+    .stat,
+    .cta-box,
+    .contact-card,
+    .english-card {
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.7);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-card {
+      border-radius: 34px;
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -80px -90px auto;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(229,68,138,0.18), transparent 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background: rgba(161,40,99,0.08);
+      color: var(--primary);
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 { margin: 0 0 14px; line-height: 1.1; }
+    h1 { font-size: clamp(2.3rem, 4vw, 4.4rem); letter-spacing: -0.03em; }
+    h2 { font-size: clamp(1.65rem, 2.4vw, 2.45rem); letter-spacing: -0.025em; }
+    h3 { font-size: 1.15rem; }
+
+    .lead {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 58ch;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 22px 0 26px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: white;
+      box-shadow: 0 14px 30px rgba(161,40,99,0.22);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--accent);
+      border: 1px solid var(--line);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(90,31,115,0.08);
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 18px;
+    }
+
+    .panel {
+      border-radius: 28px;
+      padding: 24px;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .stat {
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.75rem;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .section {
+      padding: 28px 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 22px;
+      align-items: end;
+      margin-bottom: 20px;
+    }
+
+    .section-header p {
+      max-width: 56ch;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--panel-strong);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .card .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(161,40,99,0.12), rgba(90,31,115,0.12));
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-bottom: 14px;
+    }
+
+    .card p, .panel p, .contact-card p, .english-card p { color: var(--muted); margin: 0; }
+
+    .knowledge-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .library-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .library-item {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 18px;
+      background: rgba(255,255,255,0.74);
+    }
+
+    .library-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 18px;
+    }
+
+    .steps {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--line);
+    }
+
+    .step-num {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+    }
+
+    .cta-box {
+      border-radius: 34px;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,244,249,0.95));
+    }
+
+    .checklist {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .check {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(161,40,99,0.08);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .bilingual-anchor {
+      margin-top: 10px;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .english-wrap {
+      padding-top: 12px;
+    }
+
+    .english-card {
+      border-radius: 34px;
+      padding: 34px;
+      direction: ltr;
+      text-align: left;
+    }
+
+    .english-card .eyebrow {
+      background: rgba(90,31,115,0.08);
+      color: var(--accent);
+    }
+
+    footer {
+      padding: 22px 0 46px;
+    }
+
+    .contact-card {
+      border-radius: 34px;
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 20px;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .contact-chip {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid var(--line);
+      font-weight: 600;
+    }
+
+    .muted-small {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .cards,
+      .knowledge-grid,
+      .split,
+      .cta-box,
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .section-header {
+        flex-direction: column;
+        align-items: start;
+      }
+    }
+
+    @media (max-width: 700px) {
+      body { font-size: 15px; }
+      .nav { align-items: start; flex-direction: column; }
+      .nav-links { justify-content: start; }
+      .hero-card, .english-card, .contact-card, .panel, .card, .cta-box { padding: 22px; }
+      .mini-grid, .cards { grid-template-columns: 1fr; }
+      h1 { font-size: 2.15rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <nav class="nav">
+      <div class="brand">
+        <div class="logo">K</div>
+        <div class="brand-copy">
+          <strong>Kazo Ani</strong>
+          <span>We Put Women’s Health on the Map</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#home">בית</a>
+        <a href="#library">ספריית ידע</a>
+        <a href="#webinars">וובינרים</a>
+        <a href="#voices">קולות מהשטח</a>
+        <a href="#connect">חיבור ותמיכה</a>
+        <a href="#english">English</a>
+        <a href="#contact">יצירת קשר</a>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <div class="eyebrow">Kazo Ani · בריאות נשית מונעת · ידע נגיש</div>
+          <h1>שמות את בריאות הנשים על המפה.</h1>
+          <p class="lead">
+            Kazo Ani היא פלטפורמה דו־לשונית לבריאות נשים, שנולדה כדי לתקן עיוורון מערכתי:
+            לאסוף ידע, להנגיש מידע, להשמיע קולות קליניים ונשיים, ולבנות תשתית של מניעה מוקדמת דרך נתונים של נשים על נשים.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#connect">להצטרף לקריאה הפתוחה</a>
+            <a class="btn btn-secondary" href="#library">לפתוח את ספריית הידע</a>
+          </div>
+          <div class="tag-row">
+            <span class="tag">בריאות נשית</span>
+            <span class="tag">מניעה מוקדמת</span>
+            <span class="tag">ידע ללא סטריאוטיפים</span>
+            <span class="tag">קהילה ותמיכה</span>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="panel">
+            <h3>מה אנחנו בונות כאן</h3>
+            <p>
+              לא עוד עודף רעש. לא אתר שמבטיח ניסים ורוקד עם קטורת דיגיטלית. אלא מרחב מדויק, אמין ונשי:
+              מקום שבו אפשר להבין סימפטומים, לשאול שאלות, להקשיב לרופאות ולאנשי מקצוע, ולחבר בין ידע, קהילה ומניעה.
+            </p>
+            <div class="mini-grid">
+              <div class="stat">
+                <strong>01</strong>
+                ספריית ידע ונושאים רפואיים לא מיוצגים
+              </div>
+              <div class="stat">
+                <strong>02</strong>
+                איסוף נתונים נשי לצורך מניעה והבנה טובה יותר
+              </div>
+              <div class="stat">
+                <strong>03</strong>
+                וובינרים, אירוח מרצות וראיונות עם קלינאיות
+              </div>
+              <div class="stat">
+                <strong>04</strong>
+                קריאה פתוחה לשותפות, תמיכה וחיבור אנושי
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>We Stand Together</h3>
+            <p>
+              כי נשים רבות מתארות שוב ושוב את אותו דפוס: תסמינים שמוקטנים, כאב שמוסבר כ"סטרס", וחוויות רפואיות
+              שמסוננות דרך הטיות מגדריות. Kazo Ani שואפת להפוך את המפה עצמה — לא רק לעזור לנו לנווט בתוכה.
+            </p>
+            <div class="bilingual-anchor">Hebrew first. English next. Same mission, two doors into the same room.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2>עמודי היסוד של Kazo Ani</h2>
+          </div>
+          <p>
+            המטרה איננה רק מידע. המטרה היא להפוך מידע לבר־שימוש, קהילה לברת־השפעה, ונתונים לתשתית שתתקן פערים אמיתיים בבריאות נשים.
+          </p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="icon">✦</div>
+            <h3>ספריית ידע נשית</h3>
+            <p>
+              אינדקס מסודר של נושאים רפואיים, תסמינים, מונחים, מאמרים ושאלות שכדאי לשאול — בשפה ברורה, בלי התנשאות ובלי מחיקה של חוויית האישה.
+            </p>
+          </article>
+          <article class="card">
+            <div class="icon">◌</div>
+            <h3>מניעה דרך נתונים</h3>
+            <p>
+              איסוף תובנות ודפוסים מנשים עצמן כדי לייצר בסיס לידע, לזיהוי מוקדם, ולהבנה רחבה יותר של מה שמוחמץ כיום במסמכים, במחקר ובשיח הקליני.
+            </p>
+          </article>
+          <article class="card">
+            <div class="icon">∞</div>
+            <h3>חיבור, תמיכה והשפעה</h3>
+            <p>
+              קריאה פתוחה לרופאות, חוקרות, מטפלות, מרצות, ארגונים ונשים עם סיפור — להצטרף, לשתף, ללמד, לחזק ולשנות יחד את נקודת המבט.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="library">
+      <div class="container knowledge-grid">
+        <div class="card">
+          <h2>ספריית הידע</h2>
+          <p>
+            אינדקס חכם שמסדר נושאים לא לפי מה שנוח למערכת, אלא לפי מה שנשים באמת מחפשות כשהגוף מאותת, כשהמילים חסרות, או כשהאבחנה מתעכבת.
+          </p>
+          <div class="library-list">
+            <div class="library-item">
+              <strong>תסמינים שלא קיבלו מספיק מקום</strong>
+              כאב כרוני, שינויים הורמונליים, עייפות, ויסות רגשי, בריאות מטבולית, מחזור, גיל מעבר ועוד.
+            </div>
+            <div class="library-item">
+              <strong>מסלולי ידע ברורים</strong>
+              "מה אני מרגישה", "מה זה יכול להיות", "מה לשאול בביקור רפואי", ו"מתי כדאי להעמיק".
+            </div>
+            <div class="library-item">
+              <strong>תרגום ממסמכים לשפה אנושית</strong>
+              פחות ז׳רגון מנופח, יותר הבנה. כי לפעמים מסמך רפואי נשמע כאילו כתבו אותו רובוט עצבני בלי קפה.
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>קטגוריות מוצעות לאינדקס</h3>
+          <div class="library-list">
+            <div class="library-item"><strong>הורמונים ומחזור</strong> PMS, PMDD, פריון, פרימנופאוזה, גיל מעבר.</div>
+            <div class="library-item"><strong>כאב וסימפטומים שקופים</strong> אנדומטריוזיס, כאבי אגן, כאב מפושט, עייפות כרונית.</div>
+            <div class="library-item"><strong>בריאות נפש ותפקוד</strong> עומס מנטלי, שחיקה, ADHD בנשים, ויסות רגשי.</div>
+            <div class="library-item"><strong>רפואה מונעת</strong> מדדים, בדיקות, דפוסים, שאלונים ושגרות מעקב.</div>
+            <div class="library-item"><strong>הטיה מגדרית ברפואה</strong> מה מוחמץ, למה זה קורה, ואיך מגיעות מוכנות יותר למפגש רפואי.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="webinars">
+      <div class="container split">
+        <div class="card">
+          <h2>חדרים לוובינרים — לאירוח מקצועי, לא מוגזם</h2>
+          <p>
+            Kazo Ani תציע מסגרת פשוטה, אלגנטית ומכבדת לאירוח וובינרים והרצאות. לא קרקס מצגות מנצנץ, אלא חלל ממוקד עם מעטפת ברורה שמכבדת גם את המרצה וגם את הקהל.
+          </p>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div>
+                <strong>אירוח חדר</strong>
+                <div class="muted-small">חדר דיגיטלי ממותג, דף הרשמה נקי, ותזכורות מסודרות למשתתפות.</div>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div>
+                <strong>מעטפת תוכן</strong>
+                <div class="muted-small">עמוד נושא, שאלות לקראת המפגש, תקציר לאחר האירוע, וריכוז משאבים.</div>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div>
+                <strong>חבילה מלאה</strong>
+                <div class="muted-small">מנחת שיחה, איסוף שאלות, הנגשה בסיסית, וארגון נעים שמרגיש מקצועי ולא מנוכר.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>מתאים במיוחד ל־</h3>
+          <div class="checklist">
+            <div class="check">רופאות ונשות מקצוע שרוצות להגיע ישירות לנשים שמחפשות תשובות</div>
+            <div class="check">ארגונים ויוזמות שרוצים שיח מדויק על נושאים נשיים לא מדוברים</div>
+            <div class="check">הרצאות קהילתיות סביב מניעה, סימפטומים, תפקוד ובריאות נפש</div>
+            <div class="check">מפגשי מומחיות קטנים שמבקשים עומק, כבוד וסדר</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="voices">
+      <div class="container cards">
+        <article class="card">
+          <div class="icon">🎙</div>
+          <h3>ראיונות עם קלינאיות</h3>
+          <p>
+            סדרת שיחות עם רופאות, חוקרות, מטפלות ונשות מקצוע על תחומים נשיים שמוזנחים, מוצגים חלקית, או נבלעים בין שורות במסמכים רשמיים.
+          </p>
+        </article>
+        <article class="card">
+          <div class="icon">⌁</div>
+          <h3>נושאים לא נוחים — סוף סוף על השולחן</h3>
+          <p>
+            בריאות נשית היא לא רק היריון ולידה. היא גם כאב, קוגניציה, נפש, הורמונים, עייפות, תפקוד, סיכון, דחייה רפואית, והחיים עצמם.
+          </p>
+        </article>
+        <article class="card">
+          <div class="icon">⟡</div>
+          <h3>ממסמך לשינוי</h3>
+          <p>
+            כל שיחה טובה יכולה להפוך לתוכן קבוע, מאגר ידע, דף הכנה לביקור רפואי, או תיעוד שמקדם שינוי מצטבר במקום עוד שיח חולף.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="connect">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <div class="eyebrow">Open Call</div>
+            <h2>קריאה פתוחה לחיבור, תמיכה ובנייה משותפת</h2>
+            <p class="lead" style="margin-bottom:0; max-width: 56ch;">
+              אם את רופאה, חוקרת, אשת מקצוע, מובילת קהילה, יוצרת תוכן, ארגון, או אישה עם ניסיון אישי שמרגיש חשוב מדי מכדי להישאר בשקט — Kazo Ani מזמינה אותך להתחבר.
+            </p>
+          </div>
+          <div>
+            <div class="checklist">
+              <div class="check">להציע שיתוף פעולה או סדרת תוכן</div>
+              <div class="check">להתארח או לארח וובינר</div>
+              <div class="check">להציע נושא רפואי חסר או שקוף</div>
+              <div class="check">להצטרף למהלך שמתקן הטיה מגדרית בידע ובגישה</div>
+            </div>
+            <div class="hero-actions" style="margin-bottom:0; margin-top:18px;">
+              <a class="btn btn-primary" href="mailto:danya@dynamicbridge.io?subject=Kazo%20Ani%20-%20Connection%20and%20Support">Connect</a>
+              <a class="btn btn-secondary" href="#contact">Contact details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section english-wrap" id="english">
+      <div class="container">
+        <div class="english-card">
+          <div class="eyebrow">Kazo Ani · Women’s Health · Preventive Care</div>
+          <h2>We Put Women’s Health on the Map</h2>
+          <p class="lead" style="max-width: 64ch;">
+            Kazo Ani is a bilingual women-centered health platform built to address structural blind spots in medicine. It brings together preventive care, women-led data collection, accessible knowledge, clinician interviews, and a public call for collaboration.
+          </p>
+          <div class="cards" style="margin-top:24px; grid-template-columns: repeat(3, 1fr);">
+            <article class="card" style="box-shadow:none; background: rgba(255,255,255,0.84);">
+              <h3>Knowledge Library</h3>
+              <p>A structured index of symptoms, topics, questions, and resources designed around what women actually need to understand and ask.</p>
+            </article>
+            <article class="card" style="box-shadow:none; background: rgba(255,255,255,0.84);">
+              <h3>Webinar Rooms</h3>
+              <p>A focused, elegant hosting package for webinars and expert sessions — branded, organized, and useful without going overboard.</p>
+            </article>
+            <article class="card" style="box-shadow:none; background: rgba(255,255,255,0.84);">
+              <h3>Clinician Voices</h3>
+              <p>Interviews with clinicians about female medical issues that are ignored, underestimated, or underrepresented in formal documents.</p>
+            </article>
+          </div>
+          <div class="hero-actions" style="margin-top:24px;">
+            <a class="btn btn-primary" href="mailto:danya@dynamicbridge.io?subject=Kazo%20Ani%20-%20Women%27s%20Health">Open a conversation</a>
+            <a class="btn btn-secondary" href="#home">Back to Hebrew top</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="contact-card">
+        <div>
+          <h2>Danya Dotan</h2>
+          <p>
+            CBT therapist, founder of Bridge-IT & TAB, and a solution builder focused on executive functioning, mental health, and practical systems that help people function with more clarity, dignity, and support. Kazo Ani extends that same commitment into women’s health: making knowledge more accessible, bias more visible, and prevention more actionable.
+          </p>
+        </div>
+        <div class="contact-links">
+          <a class="contact-chip" href="mailto:danya@dynamicbridge.io">danya@dynamicbridge.io</a>
+          <div class="contact-chip">Kazo Ani · Women’s Health Platform</div>
+          <div class="contact-chip">Bridge-IT · TAB · Preventive, women-centered knowledge</div>
+          <div class="muted-small">For collaborations, interviews, webinar hosting, partnerships, and support.</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
